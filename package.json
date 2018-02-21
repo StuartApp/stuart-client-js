@@ -1,0 +1,27 @@
+{
+  "name": "stuart-client-node",
+  "version": "0.1.0",
+  "description": "Stuart API node client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuartApp/stuart-client-node.git"
+  },
+  "keywords": [
+    "delivery",
+    "stuart"
+  ],
+  "author": "Maximilien Tyc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StuartApp/stuart-client-node/issues"
+  },
+  "homepage": "https://github.com/StuartApp/stuart-client-node#readme",
+  "dependencies": {
+    "client-oauth2": "^4.1.0",
+    "request": "^2.83.0"
+  }
+}
