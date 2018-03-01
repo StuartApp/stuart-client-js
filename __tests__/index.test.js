@@ -1,9 +1,8 @@
 const {
   Authenticator,
   Environment,
-  ApiResponse,
   HttpClient
-} = require('./../lib/index')
+} = require('./../index')
 
 const Request = require('request')
 const PackageJson = require('../package.json')
