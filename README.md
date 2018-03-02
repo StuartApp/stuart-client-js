@@ -71,4 +71,6 @@ httpClient.performPost('/v2/jobs', JSON.stringify(job))
 
 ```javascript
 httpClient.performGet('/v2/jobs')
+  .then((apiResponse) => { console.log(apiResponse) })
+  .catch((error) => { console.log(error) })
 ```
