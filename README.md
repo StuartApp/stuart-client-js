@@ -65,6 +65,8 @@ const job = {
 }
 
 httpClient.performPost('/v2/jobs', JSON.stringify(job))
+  .then((apiResponse) => { console.log(apiResponse) })
+  .catch((error) => { console.log(error) })
 ```
 
 #### Example: get a list of jobs
