@@ -1,3 +1,5 @@
+[ ![Codeship Status for StuartApp/stuart-client-js](https://app.codeship.com/projects/92052000-0370-0136-1296-723ff8205244/status?branch=master)](https://app.codeship.com/projects/280281)
+
 # Stuart JS Client
 
 For a complete documentation of all endpoints offered by the Stuart API, you can visit [Stuart API documentation](https://stuart.api-docs.io).
