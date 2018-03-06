@@ -1,6 +1,9 @@
 {
   "name": "stuart-client-js",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.4"
+  },
   "description": "Stuart API JavaScript client",
   "main": "index.js",
   "scripts": {
