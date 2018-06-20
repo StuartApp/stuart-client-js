@@ -72,6 +72,12 @@ describe('index', () => {
         })
 
       nock(httpClient.authenticator.environment.baseUrl)
+        .get('/some-url?param1=one&param2=two')
+        .reply(200, {
+          some: 'response'
+        })
+
+      nock(httpClient.authenticator.environment.baseUrl)
         .post('/some-url')
         .reply(200, {
           some: 'response'
@@ -85,6 +91,20 @@ describe('index', () => {
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
             'url': 'https://sandbox-api.stuart.com/some-url'},
           expect.anything())
+      })
+    })
+
+    it('sends a get http request with correct query string parameters', () => {
+      const spy = jest.spyOn(Request, 'get')
+      const params = {param1: 'one', param2: 'two'}
+      return httpClient.performGet('/some-url', params).then(() => {
+        expect(spy).toHaveBeenCalledWith(
+          {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
+            'url': 'https://sandbox-api.stuart.com/some-url',
+            'qs': {'param1': 'one', 'param2': 'two'}
+          },
+          expect.anything()
+        )
       })
     })
 

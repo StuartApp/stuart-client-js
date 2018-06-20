@@ -56,13 +56,14 @@ class HttpClient {
     this.authenticator = authenticator
   }
 
-  performGet (resource) {
+  performGet (resource, params) {
     return new Promise((resolve, reject) => {
       this.authenticator.getAccessToken().then((accessToken) => {
         let options = {
           url: this.url(resource),
           headers: this.defaultHeaders(accessToken)
         }
+        if (params) options.qs = params
 
         Request.get(options, (err, res) => resolve(
           new ApiResponse(res.statusCode, JSON.parse(res.body))))
