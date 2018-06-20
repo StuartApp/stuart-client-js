@@ -86,7 +86,7 @@ describe('index', () => {
 
     it('sends a get http request with correct parameters', () => {
       const spy = jest.spyOn(Request, 'get')
-      return httpClient.performGet('/some-url').then((res) => {
+      return httpClient.performGet('/some-url').then(() => {
         expect(spy).toHaveBeenCalledWith(
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
             'url': 'https://sandbox-api.stuart.com/some-url'},
