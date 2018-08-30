@@ -34,7 +34,7 @@ class Authenticator {
         this.oauthClient.credentials.getToken().then((accessToken) => {
           this.accessToken = accessToken
           resolve(this.accessToken.accessToken)
-        }).catch(error => { throw error })
+        }).catch(error => { reject(error) })
       }
     })
   }
@@ -67,7 +67,7 @@ class HttpClient {
 
         Request.get(options, (err, res) => resolve(
           new ApiResponse(res.statusCode, JSON.parse(res.body))))
-      }).catch(error => { throw error })
+      }).catch(error => { reject(error) })
     })
   };
 
@@ -82,7 +82,7 @@ class HttpClient {
 
         Request.post(options, (err, res) => resolve(
           new ApiResponse(res.statusCode, JSON.parse(res.body))))
-      }).catch(error => { throw error })
+      }).catch(error => { reject(error) })
     })
   };
 
