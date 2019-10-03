@@ -1,4 +1,4 @@
-[ ![Codeship Status for StuartApp/stuart-client-js](https://app.codeship.com/projects/92052000-0370-0136-1296-723ff8205244/status?branch=master)](https://app.codeship.com/projects/280281)
+[![Codeship Status for StuartApp/stuart-client-js](https://app.codeship.com/projects/47411ab0-b843-0137-a5ba-029fbc5fec2e/status?branch=master)](https://app.codeship.com/projects/364533)
 
 # Stuart JS Client
 
