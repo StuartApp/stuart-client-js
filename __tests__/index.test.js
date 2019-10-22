@@ -150,5 +150,12 @@ describe('index', () => {
         )
       })
     })
+
+    it('assumes 204 responses are successful', () => {
+      const spy = jest.spyOn(Request, 'post')
+      return httpClient.performPost('/some-url-that-returns-null-body').then((response) => {
+        expect(response.success()).toBe(true)
+      })
+    })
   })
 })

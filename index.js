@@ -47,7 +47,7 @@ class ApiResponse {
   }
 
   success () {
-    return this.statusCode === 200 || this.statusCode === 201
+    return this.statusCode >= 200 && this.statusCode < 300
   }
 }
 
