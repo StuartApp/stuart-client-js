@@ -111,6 +111,18 @@ describe('index', () => {
         )
       })
     })
+  })
+
+  describe('HttpClient#performPost', () => {
+    beforeEach(() => {
+      httpClient = new HttpClient(authenticator)
+
+      nock(httpClient.authenticator.environment.baseUrl)
+        .post('/some-url')
+        .reply(200, {
+          some: 'response'
+        })
+    })
 
     it('sends a post http request with correct parameters', () => {
       const spy = jest.spyOn(Request, 'post')
