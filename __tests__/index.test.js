@@ -126,6 +126,10 @@ describe('index', () => {
       nock(httpClient.authenticator.environment.baseUrl)
         .post('/some-url-that-returns-null-body')
         .reply(204)
+
+      nock(httpClient.authenticator.environment.baseUrl)
+        .post('/make-tea')
+        .reply(418)
     })
 
     it('sends a post http request with correct parameters', () => {
@@ -151,10 +155,24 @@ describe('index', () => {
       })
     })
 
+    it('assumes 200 responses are successful', () => {
+      const spy = jest.spyOn(Request, 'post')
+      return httpClient.performPost('/some-url').then((response) => {
+        expect(response.success()).toBe(true)
+      })
+    })
+
     it('assumes 204 responses are successful', () => {
       const spy = jest.spyOn(Request, 'post')
       return httpClient.performPost('/some-url-that-returns-null-body').then((response) => {
         expect(response.success()).toBe(true)
+      })
+    })
+
+    it('assumes non 2xx responses are failures', () => {
+      const spy = jest.spyOn(Request, 'post')
+      return httpClient.performPost('/make-tea').then((response) => {
+        expect(response.success()).toBe(false)
       })
     })
   })
