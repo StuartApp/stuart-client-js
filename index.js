@@ -81,7 +81,7 @@ class HttpClient {
         }
 
         Request.post(options, (err, res) => resolve(
-          new ApiResponse(res.statusCode, JSON.parse(res.body))))
+          new ApiResponse(res.statusCode, JSON.parse(res.body || '{}'))))
       }).catch(error => { reject(error) })
     })
   };

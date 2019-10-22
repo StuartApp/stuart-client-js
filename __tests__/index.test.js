@@ -122,6 +122,10 @@ describe('index', () => {
         .reply(200, {
           some: 'response'
         })
+
+      nock(httpClient.authenticator.environment.baseUrl)
+        .post('/some-url-that-returns-null-body')
+        .reply(204)
     })
 
     it('sends a post http request with correct parameters', () => {
@@ -131,6 +135,17 @@ describe('index', () => {
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
             'url': 'https://sandbox-api.stuart.com/some-url',
             'body': '{"some":"body"}'},
+          expect.anything()
+        )
+      })
+    })
+
+    it('handles null response bodies', () => {
+      const spy = jest.spyOn(Request, 'post')
+      return httpClient.performPost('/some-url-that-returns-null-body').then(() => {
+        expect(spy).toHaveBeenCalledWith(
+          {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
+            'url': 'https://sandbox-api.stuart.com/some-url-that-returns-null-body'},
           expect.anything()
         )
       })
