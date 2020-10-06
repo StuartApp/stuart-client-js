@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/StuartApp/stuart-client-js#readme",
   "dependencies": {
-    "client-oauth2": "^4.3.3",
+    "client-oauth2": "4.2.4",
     "request": "^2.83.0"
   },
   "devDependencies": {
