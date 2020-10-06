@@ -2,7 +2,7 @@
   "name": "stuart-client-js",
   "version": "1.1.2",
   "engines": {
-    "node": "8.9.4"
+    "node": ">=12.8.4"
   },
   "description": "Stuart API JavaScript client",
   "main": "index.js",
