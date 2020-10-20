@@ -41,9 +41,10 @@ class Authenticator {
 }
 
 class ApiResponse {
-  constructor (statusCode, body) {
+  constructor (statusCode, body, headers) {
     this.statusCode = statusCode
     this.body = body
+    this.headers = headers
   }
 
   success () {
@@ -66,7 +67,7 @@ class HttpClient {
         if (params) options.qs = params
 
         Request.get(options, (err, res) => resolve(
-          new ApiResponse(res.statusCode, JSON.parse(res.body))))
+          new ApiResponse(res.statusCode, JSON.parse(res.body), res.headers)))
       }).catch(error => { reject(error) })
     })
   };
@@ -81,7 +82,7 @@ class HttpClient {
         }
 
         Request.post(options, (err, res) => resolve(
-          new ApiResponse(res.statusCode, JSON.parse(res.body || '{}'))))
+          new ApiResponse(res.statusCode, JSON.parse(res.body || '{}'), res.headers)))
       }).catch(error => { reject(error) })
     })
   };
