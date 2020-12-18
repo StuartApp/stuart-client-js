@@ -65,9 +65,14 @@ class HttpClient {
           headers: this.defaultHeaders(accessToken)
         }
         if (params) options.qs = params
-
-        Request.get(options, (err, res) => resolve(
-          new ApiResponse(res.statusCode, JSON.parse(res.body), res.headers)))
+        Request.get(options, (err, res) => {
+          try {
+            const responseBody = JSON.parse(res.body)
+            resolve(new ApiResponse(res.statusCode, responseBody, res.headers))
+          } catch (e) {
+            reject(e)
+          }
+        })
       }).catch(error => { reject(error) })
     })
   };
@@ -80,9 +85,14 @@ class HttpClient {
           headers: this.defaultHeaders(accessToken),
           body: body
         }
-
-        Request.post(options, (err, res) => resolve(
-          new ApiResponse(res.statusCode, JSON.parse(res.body || '{}'), res.headers)))
+        Request.post(options, (err, res) => {
+          try {
+            const responseBody = JSON.parse(res.body)
+            resolve(new ApiResponse(res.statusCode, responseBody, res.headers))
+          } catch (e) {
+            reject(e)
+          }
+        })
       }).catch(error => { reject(error) })
     })
   };
