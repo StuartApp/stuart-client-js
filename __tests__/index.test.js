@@ -93,7 +93,7 @@ describe('index', () => {
       return httpClient.performGet('/some-url').then(() => {
         expect(spy).toHaveBeenCalledWith(
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
-            'url': 'https://sandbox-api.stuart.com/some-url'},
+            'url': 'https://api.sandbox.stuart.com/some-url'},
           expect.anything())
       })
     })
@@ -104,7 +104,7 @@ describe('index', () => {
       return httpClient.performGet('/some-url', params).then(() => {
         expect(spy).toHaveBeenCalledWith(
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
-            'url': 'https://sandbox-api.stuart.com/some-url',
+            'url': 'https://api.sandbox.stuart.com/some-url',
             'qs': {'param1': 'one', 'param2': 'two'}
           },
           expect.anything()
@@ -137,7 +137,7 @@ describe('index', () => {
       return httpClient.performPost('/some-url', JSON.stringify({some: 'body'})).then(() => {
         expect(spy).toHaveBeenCalledWith(
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
-            'url': 'https://sandbox-api.stuart.com/some-url',
+            'url': 'https://api.sandbox.stuart.com/some-url',
             'body': '{"some":"body"}'},
           expect.anything()
         )
@@ -149,7 +149,7 @@ describe('index', () => {
       return httpClient.performPost('/some-url-that-returns-null-body').then(() => {
         expect(spy).toHaveBeenCalledWith(
           {'headers': {'Authorization': 'Bearer new-token', 'Content-Type': 'application/json', 'User-Agent': 'stuart-client-js/' + PackageJson.version},
-            'url': 'https://sandbox-api.stuart.com/some-url-that-returns-null-body'},
+            'url': 'https://api.sandbox.stuart.com/some-url-that-returns-null-body'},
           expect.anything()
         )
       })
