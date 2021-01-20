@@ -5,7 +5,7 @@ const PackageJson = require('./package.json')
 class Environment {
   static SANDBOX () {
     return {
-      baseUrl: 'https://sandbox-api.stuart.com'
+      baseUrl: 'https://sandbox.api.stuart.com'
     }
   }
 
