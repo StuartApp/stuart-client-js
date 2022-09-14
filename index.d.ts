@@ -19,7 +19,7 @@ declare class ApiResponse {
 
 declare class HttpClient {
   constructor(authenticator: any);
-  performGet(resource: any, params: any): Promise<any>;
+  performGet(resource: any, params?: any): Promise<any>;
   performPost(resource: any, body: any): Promise<any>;
   url(resource: any): any;
   defaultHeaders(accessToken: any): {
