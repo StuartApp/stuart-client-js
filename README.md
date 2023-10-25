@@ -22,8 +22,8 @@ const {
 } = require('stuart-client-js')
 
 const environment = Environment.SANDBOX()
-const api_client_id = 'c6058849d0a056fc743203acb8e6a850dad103485c3edc51b16a9260cc7a7689' // can be found here: https://admin-sandbox.stuart.com/client/api
-const api_client_secret = 'aa6a415fce31967501662c1960fcbfbf4745acff99acb19dbc1aae6f76c9c618' // can be found here: https://admin-sandbox.stuart.com/client/api
+const api_client_id = 'XXXXXXX-XXXXXXXX-XXXXXXX' // can be found here: https://admin-sandbox.stuart.com/client/api
+const api_client_secret = 'XXXXXXX-XXXXXXXX-XXXXXXX' // can be found here: https://admin-sandbox.stuart.com/client/api
 const auth = new Authenticator(environment, api_client_id, api_client_secret)
 
 const httpClient = new HttpClient(auth)
